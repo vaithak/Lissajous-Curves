@@ -1,5 +1,3 @@
-// Vaibhav Thakkar
-
 let radius = 60;
 let cellWidth = 120;
 let cellHeight = 120;
@@ -49,6 +47,13 @@ function draw() {
         	let cx2 = verCircles[j][0] + radius * cos((j + 1) * (angle - HALF_PI));
         	let cy2 = verCircles[j][1] + radius * sin((j + 1) * (angle - HALF_PI));
             drawPoint(cx2, cy2, 10);
+            drawPoint(cx1, cy2, 10);
+            
+            strokeWeight(1);
+            stroke(111);
+            line(cx1, cy1, cx1, cy2);
+            line(cx2, cy2, cx1, cy2);
+            
             curves[i][j].push([cx1, cy2]);
         }
     }
@@ -83,6 +88,7 @@ function showCurve(cur) {
 }
 
 function drawPoint(x, y, weight) {
+    stroke(0, 220, 110);
     strokeWeight(weight);
     point(x, y);
     strokeWeight(1);
